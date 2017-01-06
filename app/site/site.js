@@ -1,10 +1,9 @@
 'use strict';
 
-// const Jii = require('jii');
+const Jii = require('jii');
 
-// Jii.app.setModules({
-//     'site': require('./SiteModule'),
-//     'profile': require('../profile/ProfileModule')
-// });
-//
-// Jii.app.urlManager._compileRules(); // TODO Add to jii method addRules()
+Jii.app.setModules({
+    'countries': require('../countries/CountriesModule'),
+});
+
+Jii.app.urlManager._compileRules(); // TODO Add to jii method addRules()

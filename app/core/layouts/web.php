@@ -11,8 +11,6 @@ use yii\widgets\Breadcrumbs;
 /* @var $this \yii\web\View */
 /* @var $content string */
 
-$this->registerJsFile('@web/assets/main.js');
-$this->registerCssFile('@web/assets/main.css');
 ?>
 <?php $this->beginPage() ?>
 <!DOCTYPE html>
@@ -23,6 +21,8 @@ $this->registerCssFile('@web/assets/main.css');
     <?= Html::csrfMetaTags() ?>
     <title><?= \Yii::$app->megaMenu->getFullTitle() ?></title>
     <?php $this->head() ?>
+    <?= Html::jsFile('@web/assets/bundle-index.js') ?>
+    <?= Html::jsFile('@web/assets/bundle-style.js') ?>
 </head>
 <body>
 

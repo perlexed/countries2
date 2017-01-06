@@ -16,6 +16,9 @@ return \yii\helpers\ArrayHelper::merge(
             'errorHandler' => [
                 'errorAction' => 'site/site/error',
             ],
+            'clientApplication' => [
+                'class' => '\app\core\components\ClientApplication',
+            ],
         ],
     ]
 );

@@ -1,6 +1,6 @@
-var webpack = require('webpack');
-var WebpackDevServer = require('webpack-dev-server');
-var glob = require('glob');
+const webpack = require('webpack');
+const WebpackDevServer = require('webpack-dev-server');
+const glob = require('glob');
 
 /**
  * npm install webpack webpack-dev-server glob babel-loader babel-core babel-preset-es2015 json-loader style-loader \
@@ -8,9 +8,9 @@ var glob = require('glob');
  **/
 
 // Check `production` or `--production` in cli arguments
-var isProduction = process.argv.splice(2).filter(a => a.match(/(--)?production/) !== null).length > 0;
+const isProduction = process.argv.splice(2).filter(a => a.match(/(--)?production/) !== null).length > 0;
 
-var globPromise = function (pattern) {
+const globPromise = function (pattern) {
     return new Promise((resolve, reject) => {
         glob(pattern, (err, files) => {
             if (err) {
@@ -48,7 +48,8 @@ Promise.all([
         // entries
         let entry = {
             'style': result[i++],
-            site: './app/site/site',
+            // @todo sort out bundles (bundle) generation
+            countries: './app/site/site',
             index: result[i++]
         };
         result[i++].forEach(file => {
