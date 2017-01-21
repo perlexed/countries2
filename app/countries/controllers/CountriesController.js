@@ -1,8 +1,9 @@
 'use strict';
 
-const Controller = require('jii/base/Controller'); //TODO: что-то не так в jii, должно быть так: 'jii.base.Controller'
+const Controller = require('jii/base/Controller');
+const Jii = require('jii');
 
-class SiteController extends Controller{
+class SiteController extends Controller {
 
     /**
      *
@@ -10,16 +11,13 @@ class SiteController extends Controller{
      * @return {Promise}
      */
     actionIndex(context) {
-        return new Promise(resolve => {
-            require.ensure([], () => {
-                resolve(
-                    this.render(
-                        require('../views/countries/index'),
-                        context
-                    )
-                );
-            });
-        });
+
+        Jii.app.getModule('countries').game.run();
+
+        return this.render(
+            require('../views/countries/index'),
+            context
+        );
     }
 }
 
